@@ -262,7 +262,8 @@ Times 家族（如 Times New Roman）的 TeXGyre Termes（來自 [`newtx`](https
 
 ## 版權聲明
 
-The `nstc-proposal` class is distributed under the conditions of the LATEX Project Public License, either version 1.3c of this license or (at your option) any later version.
+本套件依 LaTeX Project Public License（LPPL）第 1.3c 版或任何後續版本的條款散布，
+詳見 [LICENSE](LICENSE)。
 
 [^1]: 根據 Wikipedia 的[說明](https://en.wikipedia.org/wiki/Leading#cite_ref-4)，Word 97–2010 的一倍行距實則為 1.15 倍的行距（leading）之後為 1.08 倍，所以不清楚到底行距實質規定多少。此文件格式行距以 `setspace` 套件的 `\onehalfspacing` 設定行距，印出後肉眼比對約略相等國科會網站下載的範例檔。
 [^2]: 文鼎字型公眾授權字型法律聲明[在此](https://www.arphic.com.tw/2022/01/21/plfont/)。
