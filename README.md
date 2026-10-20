@@ -208,9 +208,11 @@ tlmgr install nstc-proposal
 
 ```latex
 \documentclass{nstc-report}
+\title{研究計畫成果報告}
 
 \begin{document}
 \frontmatter % 不需要目錄時可省略
+\maketitle
 
 \section{前言}
 說明研究背景。
@@ -224,6 +226,7 @@ tlmgr install nstc-proposal
 ```
 
 頁碼預設使用阿拉伯數字；`\frontmatter` 會自動產生目錄並切換頁碼，請至少編譯兩次以更新目錄。
+`\maketitle` 僅顯示 `\title` 設定的標題，不顯示作者或日期。
 摘要與關鍵詞請於國科會成果報告系統填寫。完整結構範例見 `example/report.tex`。
 
 ## 設計

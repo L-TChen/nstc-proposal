@@ -118,6 +118,9 @@
 % 此指令已包含 |\tableofcontents| 及頁碼切換；不需要目錄時，省略即可。
 % 目錄項目及頁碼需編譯至少兩次才會更新。
 %
+% \DescribeMacro{\maketitle}
+% 在 |nstc-report| 中，僅排印 |\title{...}| 設定的標題，不顯示作者或日期，也不保留其空間。
+%
 % \subsection{預載套件}
 % 
 % 除 |amsmath| 和 |amsthm| 外，僅預載版面及字型設定所需的套件；其他套件請自行載入。
@@ -443,7 +446,7 @@
 %    \end{macrocode}
 % \end{macro}
 % \subsection{進度及成果報告文件格式}
-% 報告格式共用前述字型及套件設定，僅在此設定報告專用的頁碼。
+% 報告格式共用前述字型及套件設定，在此設定報告專用的標題及頁碼。
 % pdf\LaTeX 使用 |CJKutf8| 與文鼎 PL 中楷；\XeLaTeX 優先使用標楷體，並提供文鼎 PL 中楷作為備援。
 % 英文預設使用 |newtxtext| 與 |newtxmath|，亦支援 |libertine| 與 |kaiti| 選項。
 % |plain| 頁面樣式將頁碼置於頁尾中央，不加申請書表號或總頁數。
@@ -451,6 +454,16 @@
 % 換頁在改變頁碼格式之前執行，確保前一頁與浮動物件使用原頁碼。
 %    \begin{macrocode}
 %<*report>
+\renewcommand{\@maketitle}{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+    \let\footnote\thanks
+    {\LARGE \@title \par}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
 \pagestyle{plain}
 \newcommand{\frontmatter}{%
   \clearpage
