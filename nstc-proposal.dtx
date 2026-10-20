@@ -69,6 +69,7 @@
 % 以下三種文件格式皆以 \LaTeX 內建的 |article| 為基礎，可透過 |\documentclass| 選用。
 % 採 A4、12 點，並以 |\onehalfspacing| 配合 Word 範例的「單行間距」。
 % 頁面邊界左右與上方設為 2 公分，下方則略為增加至 2.4 公分保持版面平衡。
+% 皆支援 pdf\LaTeX 與 \XeLaTeX。
 %
 % \DescribeMacro{nstc-cm03}
 % 適用於表 CM03 研究計畫內容。
@@ -77,10 +78,9 @@
 % 適用於表 CM302 著作目錄。
 %
 % \DescribeMacro{nstc-report}
-% 適用於進度及成果報告的文件格式，支援 pdf\LaTeX 與 \XeLaTeX。
+% 適用於進度及成果報告。
 %
-% |nstc-report| 另提供進度及成果報告格式，依據民國 114 年 10 月 2 日版
-% 「國家科學及技術委員會專題研究計畫報告撰寫格式」。
+% |nstc-report| 另提供進度及成果報告格式。
 % 撰寫格式未指定頁面邊界，可用 |\geometry| 調整。
 % 預設使用阿拉伯數字頁碼，從第 1 頁開始；若需要目錄，可用 |\frontmatter| 產生以大寫羅馬數字編頁的目錄。
 %
@@ -474,7 +474,7 @@
 %</report>
 %    \end{macrocode}
 %
-% \includepdfmerge[nup=1x2, landscape]{./example/proposal.pdf, ./example/bibliography.pdf}
+% \includepdfmerge[nup=2x1, landscape]{./example/proposal.pdf, ./example/bibliography.pdf}
 %
 % \Finale
 
