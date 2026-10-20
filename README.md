@@ -77,14 +77,14 @@ version 1.3c or later. See [LICENSE](LICENSE).
 * 表 CM302
 
 兩者皆支援中英混排，以及 pdfLaTeX 與 XeLaTeX。此格式依據民國 112 年 11 月 7 日版
-專題研究計畫申請書表 CM03 研究計畫內容頁數限制一覽表。
+[專題研究計畫申請書表 CM03 研究計畫內容頁數限制一覽表](https://www.nstc.gov.tw/nstc/attachments/ee49fe4d-e7a6-44e9-89cf-cd8ca054d6b5)。
 
 本套件另提供進度與成果報告格式
 
 * `nstc-report`
 
 支援 **pdfLaTeX 與 XeLaTeX**，並與 CM03/CM302 共用字型設定。
-此格式依據民國 114 年 10 月 2 日（2025-10-02）版 國科會報告撰寫格式。
+此格式依據民國 114 年 10 月 2 日（2025-10-02）版 [國科會報告撰寫格式](https://www.nstc.gov.tw/nstc/attachments/ee49fe4d-e7a6-44e9-89cf-cd8ca054d6b5)。
 
 ## 安裝方式
 
