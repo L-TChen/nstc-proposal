@@ -14,8 +14,8 @@
 % The Current Maintainer of this work is Liang-Ting Chen (陳亮廷)
 % 
 % This work consists of the files nstc-proposal.dtx and nstc-proposal.ins
-% and the derived files nstc-cm03.cls, nstc-cm302.cls,
-% example/proposal.tex, and example/bibliography.tex.
+% and the derived files nstc-cm03.cls, nstc-cm302.cls, nstc-report.cls,
+% example/proposal.tex, example/bibliography.tex, and example/report.tex.
 
 \input docstrip.tex
 \askforoverwritefalse
@@ -36,14 +36,16 @@ This work has the LPPL maintenance status `maintained'.
 The Current Maintainer of this work is Liang-Ting Chen (陳亮廷).
 
 This work consists of the files nstc-proposal.dtx and nstc-proposal.ins
-and the derived files nstc-cm03.cls, nstc-cm302.cls,
-example/proposal.tex, and example/bibliography.tex.
+and the derived files nstc-cm03.cls, nstc-cm302.cls, nstc-report.cls,
+example/proposal.tex, example/bibliography.tex, and example/report.tex.
 
 \endpreamble
 \generate{\file{example/proposal.tex}{\from{\jobname.dtx}{proposal.tex}}
           \file{example/bibliography.tex}{\from{\jobname.dtx}{bibliography.tex}}
           \file{nstc-cm03.cls}{\from{\jobname.dtx}{cm03}}
           \file{nstc-cm302.cls}{\from{\jobname.dtx}{cm302}}
+          \file{nstc-report.cls}{\from{\jobname.dtx}{report}}
+          \file{example/report.tex}{\from{\jobname.dtx}{report.tex}}
           }
 \obeyspaces
 \endbatchfile

@@ -1,4 +1,4 @@
-# nstc-proposal: LaTeX classes for NSTC grant proposals (國科會專題研究計畫 LaTeX 文件格式)
+# nstc-proposal: LaTeX classes for NSTC proposals and reports (國科會專題研究計畫 LaTeX 文件格式)
 
 (See [below](#概要) for 中文解說)
 
@@ -11,6 +11,11 @@ This package consists of LaTeX classes for preparing grant proposals to National
 
 which support typesetting in both Chinese and English and are compatible with pdfLaTeX and XeTeX.
 
+The package also provides `nstc-report` for progress and final research reports.
+It supports **pdfLaTeX and XeLaTeX**, sharing font configuration with CM03/CM302.
+It follows the layout in the supplied NSTC report-format document dated
+114/10/02 (2025-10-02), with the same font substitutions as the proposal classes.
+
 ## Installation
 
 ### CTAN installation
@@ -18,7 +23,7 @@ which support typesetting in both Chinese and English and are compatible with pd
 Run the following command in a terminal (or use any TeX package manager) to install:
 
 ```bash
-tlmger install nstc-proposal
+tlmgr install nstc-proposal
 ```
 
 ### Manual Installation
@@ -38,7 +43,7 @@ tlmger install nstc-proposal
 
    Placing the generated files under any subdirectory of the directory shown above should work.
 
-3. Compile tex files under `example` by pdfLaTeX or XeTeX and see if the package has been installed properly.
+3. Compile any of the examples with pdfLaTeX or XeLaTeX (see below).
 
 ## Usage
 
@@ -50,44 +55,64 @@ See `nstc-proposal.pdf`.
 
 Please report any bug or feature request on GitHub (<https://github.com/L-TChen/nstc-proposal>).
 
+Edit `nstc-proposal.dtx` and regenerate with `latex nstc-proposal.ins` when
+changing a class or example.
+
+All three classes share incompatible-option handling: rejected options produce
+a warning naming the selected class and are removed before `article` or later
+packages can apply them. This includes `landscape`, `10pt`, `11pt`, `letterpaper`,
+`a5paper`, `b5paper`, `executivepaper`, `legalpaper`, `twocolumn`, `titlepage`,
+`notitlepage`, and `openright`. Compatible options continue to pass to `article`.
+
 ## License
 
-The `nstc-proposal` class is distributed under the conditions of the LATEX Project Public License, either version 1.3c of this license or (at your option) any later version.
+This package is distributed under the LaTeX Project Public License (LPPL),
+version 1.3c or later. See [LICENSE](LICENSE).
 
 ## 概要
 
-此套件提供準以下台灣國科會專題計劃申請書的文件格式：
+本套件提供台灣國家科學及技術委員會專題研究計畫申請書的 LaTeX 文件格式：
 
 * 表 CM03
 * 表 CM302
 
-並且支援中英混排，相容 pdfLaTeX 跟 XeTeX 編譯。
+兩者皆支援中英混排，以及 pdfLaTeX 與 XeLaTeX。此格式依據民國 112 年 11 月 7 日版
+專題研究計畫申請書表 CM03 研究計畫內容頁數限制一覽表。
+
+本套件另提供進度與成果報告格式
+
+* `nstc-report`
+
+支援 **pdfLaTeX 與 XeLaTeX**，並與 CM03/CM302 共用字型設定。
+此格式依據民國 114 年 10 月 2 日（2025-10-02）版 國科會報告撰寫格式。
 
 ## 安裝方式
 
 ### CTAN 安裝
 
-在終端機下執行以下命令安裝（或是用任何一個 TeX 的套件管理程式）:
+在終端機執行以下指令安裝（或使用 TeX 套件管理程式）：
 
 ```bash
-tlmger install nstc-proposal
+tlmgr install nstc-proposal
 ```
 
 ### 手動安裝
 
-1. 在終端機下執行以下命令生成檔案跟範例：
+1. 在終端機執行以下指令產生檔案與範例：
 
    ```bash
    latex nstc-proposal.ins
    ```
 
-2. 把生成出來的 `.cls` 檔案複製到 LaTeX 可以搜尋得到的目錄下。提示：把檔案放在 `kpsewhich -var-value TEXMFLOCAL` 下的任一子目錄應該就可以。`TEXMFLOCAL` 路徑可用以下指令得到：
+2. 將產生的 `.cls` 檔案複製到 LaTeX 可搜尋的目錄。可用以下指令查詢本機 texmf 目錄：
 
    ```bash
    kpsewhich -var-value TEXMFLOCAL
    ```
 
-3. 用 pdfLaTeX 或是 XeTeX 編譯 `example` 目錄底下的檔案，看是否有安裝成功。
+   將檔案放在該目錄下的子目錄即可。
+
+3. 使用 pdfLaTeX 或 XeLaTeX 編譯範例（見下方說明）。
 
 ## 使用方式
 
@@ -116,6 +141,10 @@ tlmger install nstc-proposal
 請詳述本研究計畫所要探討或解決的問題、研究原創性、重要性、預期影響性及國內外有關本計畫之研究情況、重要參考文獻之評述等。如為連續性計畫應說明上年度研究進度。
 \vskip1em
 ```
+
+進度與成果報告格式則提供
+
+* `\frontmatter`: 產生以大寫羅馬數字編頁的目錄，再將正文頁碼重設為阿拉伯數字第 1 頁。
 
 ### 表 CM03 範例
 
@@ -172,6 +201,30 @@ tlmger install nstc-proposal
 ```
 
 便能產出此[結果](https://github.com/user-attachments/files/17573002/bibliography.pdf)。
+
+### 進度與成果報告範例
+
+使用 `nstc-report` 撰寫報告，可用 pdfLaTeX 或 XeLaTeX 編譯：
+
+```latex
+\documentclass{nstc-report}
+
+\begin{document}
+\frontmatter % 不需要目錄時可省略
+
+\section{前言}
+說明研究背景。
+
+\section{研究方法}
+說明研究方法與執行過程。
+
+\section{結果與討論}
+說明研究成果與結論。
+\end{document}
+```
+
+頁碼預設使用阿拉伯數字；`\frontmatter` 會自動產生目錄並切換頁碼，請至少編譯兩次以更新目錄。
+摘要與關鍵詞請於國科會成果報告系統填寫。完整結構範例見 `example/report.tex`。
 
 ## 設計
 
